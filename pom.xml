@@ -33,12 +33,14 @@
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
         </dependency>
+
         <!-- WeBDriverManager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>5.3.1</version>
         </dependency>
+
         <!-- TestNG Annotations -->
         <dependency>
             <groupId>org.jetbrains</groupId>
@@ -46,6 +48,7 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+
         <!-- TestNG -->
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
@@ -54,12 +57,14 @@
             <version>7.7.1</version>
             <scope>test</scope>
         </dependency>
+
         <!-- HTML ExtentReports -->
         <dependency>
             <groupId>com.relevantcodes</groupId>
             <artifactId>extentreports</artifactId>
             <version>2.41.2</version>
         </dependency>
+
     </dependencies>
 
 </project>
