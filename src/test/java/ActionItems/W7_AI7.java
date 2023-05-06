@@ -20,7 +20,7 @@ public class W7_AI7 extends ReusableAnnotations {
         //click on flight tab
         ReusableMethodsLoggers.clickMethod(driver, "//*[@id='bookFlightTab']", logger, "Flight Tab");
         //click on round trip radio button
-        ReusableMethodsLoggers.clickMethod(driver, "(//*[@class='app-components-BookFlightForm-bookFlightForm__checkmark--2DHJD'][1])", logger, "RoundTrip Radio");
+        ReusableMethodsLoggers.clickMethod(driver, "(//*[@class='app-components-BookFlightForm-bookFlightForm__checkmark--2DHJD'])[1]", logger, "RoundTrip Radio");
         //confirm the radio button is selected
         ReusableMethodsLoggers.booleanMethod(driver, "(//*[@type='radio'])[1]", true, logger, "Confirming Radio Button is Selected");
     }//end of TC_01_NavigateToUnitedAirlines
