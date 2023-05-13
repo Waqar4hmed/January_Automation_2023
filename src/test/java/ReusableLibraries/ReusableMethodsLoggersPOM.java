@@ -32,6 +32,8 @@ public class ReusableMethodsLoggersPOM {
         //options.addArguments("incognito");
         //options.addArguments("headless");
         options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+        //disable pop ups
+        //options.addArguments("--disable-popup-blocking");
 
         //set up option variable inside chrome driver for it to recognize your conditions
         WebDriver driver = new ChromeDriver(options);
