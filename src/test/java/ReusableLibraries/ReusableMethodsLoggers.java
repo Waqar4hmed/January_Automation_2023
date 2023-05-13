@@ -34,6 +34,9 @@ public class ReusableMethodsLoggers {
         options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
         //disable pop ups
         //options.addArguments("--disable-popup-blocking");
+        //disable 'know your location'
+        //options.addArguments("--enable-strict-powerful-feature-restrictions");
+        //options.addArguments("--disable-geolocation");
 
         //set up option variable inside chrome driver for it to recognize your conditions
         WebDriver driver = new ChromeDriver(options);
