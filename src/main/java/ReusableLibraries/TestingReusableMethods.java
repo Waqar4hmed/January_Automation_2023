@@ -1,7 +1,5 @@
 package ReusableLibraries;
 
-import ReusableLibraries.ReusableAnnotations;
-import ReusableLibraries.ReusableMethods;
 import org.testng.annotations.Test;
 
 public class TestingReusableMethods extends ReusableAnnotations {

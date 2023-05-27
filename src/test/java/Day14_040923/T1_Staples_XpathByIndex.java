@@ -5,9 +5,6 @@ import ReusableLibraries.ReusableMethodsLoggers;
 import com.relevantcodes.extentreports.LogStatus;
 import org.testng.annotations.Test;
 
-import static ReusableLibraries.ReusableAnnotations.driver;
-import static ReusableLibraries.ReusableAnnotations.logger;
-
 public class T1_Staples_XpathByIndex extends ReusableAnnotations {
 
     @Test(priority = 1)

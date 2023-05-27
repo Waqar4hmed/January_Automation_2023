@@ -32,7 +32,7 @@ public class ReusableMethodsLoggersPOM {
         //options.addArguments("incognito");
         //options.addArguments("headless");
         options.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
-        //disable pop ups
+        //disable pop-ups
         //options.addArguments("--disable-popup-blocking");
         //disable 'know your location'
         //options.addArguments("--enable-strict-powerful-feature-restrictions");
@@ -82,11 +82,11 @@ public class ReusableMethodsLoggersPOM {
 */
 
     //submit method
-    public static void submitMethod(WebDriver driver, String xpath, ExtentTest logger, String elementName) {
+    public static void submitMethod(WebDriver driver, WebElement xpath, ExtentTest logger, String elementName) {
         //declare explicit wait statement
         WebDriverWait wait = new WebDriverWait(driver, 10);
         try {
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath))).submit();
+            wait.until(ExpectedConditions.visibilityOf(xpath)).submit();
             System.out.println("Successfully clicked enter on element " + elementName);
             logger.log(LogStatus.PASS, "Successfully clicked enter on element " + elementName);
         } catch (Exception e) {
@@ -98,11 +98,11 @@ public class ReusableMethodsLoggersPOM {
 
 
     //sendKeys method
-    public static void sendKeysMethod(WebDriver driver, String xpath, String userValue, ExtentTest logger, String elementName) {
+    public static void sendKeysMethod(WebDriver driver, WebElement xpath, String userValue, ExtentTest logger, String elementName) {
         //declare explicit wait statement
         WebDriverWait wait = new WebDriverWait(driver, 10);
         try {
-            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(xpath));
             element.clear();
             element.sendKeys(userValue);
             System.out.println("Successfully cleared and send value on element " + elementName);
@@ -134,12 +134,12 @@ public class ReusableMethodsLoggersPOM {
 */
 
     //getText method
-    public static String getTextMethod(WebDriver driver, String xpath, ExtentTest logger, String elementName) {
+    public static String getTextMethod(WebDriver driver, WebElement xpath, ExtentTest logger, String elementName) {
         //declare explicit wait statement
         WebDriverWait wait = new WebDriverWait(driver, 10);
         String result = null;
         try {
-            WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(xpath));
             result = element.getText();
             System.out.println("Successfully captured text from element " + elementName);
             logger.log(LogStatus.PASS, "Successfully captured text from element " + elementName);

@@ -5,8 +5,6 @@ import ReusableLibraries.ReusableMethodsLoggers;
 import com.relevantcodes.extentreports.LogStatus;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-
 public class W7_AI7 extends ReusableAnnotations {
 
     @Test(priority = 1)
