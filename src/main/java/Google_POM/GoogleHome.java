@@ -26,14 +26,20 @@ public class GoogleHome extends ReusableAnnotations {
     WebElement searchField;
     @FindBy(xpath = "//*[@name='btnK']")
     WebElement searchButton;
+    @FindBy(xpath = "//*[text()='About']")
+    WebElement aboutLink;
 
     //create your user defined method for each web element
-    public void enterKeywordOnSearchField(String userValue){
+    public void enterKeywordOnSearchField(String userValue) {
         ReusableMethodsLoggersPOM.sendKeysMethod(driver, searchField, userValue, logger, "Search Flied");
-    }
+    }//end of sendKeys method
 
-    public void submitONGoogleSearchButton(){
+    public void submitONGoogleSearchButton() {
         ReusableMethodsLoggersPOM.submitMethod(driver, searchButton, logger, "Search Button");
-    }
+    }//end of submit method
+
+    public void clickOnAboutLink() {
+        ReusableMethodsLoggersPOM.clickMethod(driver, aboutLink, logger, "About Link");
+    }//end of click method
 
 }//end of class

@@ -50,11 +50,11 @@ public class ReusableMethodsLoggersPOM {
     //the void actions are click, sendKeys, submit, clear, scroll, mouse hover
 
     //click method
-    public static void clickMethod(WebDriver driver, String xpath, ExtentTest logger, String elementName) {
+    public static void clickMethod(WebDriver driver, WebElement xpath, ExtentTest logger, String elementName) {
         //declare explicit wait statement
         WebDriverWait wait = new WebDriverWait(driver, 10);
         try {
-            wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath))).click();
+            wait.until(ExpectedConditions.visibilityOf(xpath)).click();
             System.out.println("Successfully clicked on element " + elementName);
             logger.log(LogStatus.PASS, "Successfully clicked on element " + elementName);
         } catch (Exception e) {
@@ -251,10 +251,10 @@ public class ReusableMethodsLoggersPOM {
             WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
             jse.executeScript("arguments[0].scrollIntoView(true);", element);
             System.out.println("Successfully scrolled into view " + elementName);
-            logger.log(LogStatus.PASS,"Successfully scrolled into view " + elementName);
+            logger.log(LogStatus.PASS, "Successfully scrolled into view " + elementName);
         } catch (Exception e) {
             System.out.println("Unable to scroll into view " + elementName + ": " + e);
-            logger.log(LogStatus.FAIL,"Unable to scroll into view " + elementName + ": " + e);
+            logger.log(LogStatus.FAIL, "Unable to scroll into view " + elementName + ": " + e);
             getScreenShot(driver, elementName, logger);
         }//end of exception
     }//end of scroll into view method
@@ -268,10 +268,10 @@ public class ReusableMethodsLoggersPOM {
         try {
             jse.executeScript(scroll);
             System.out.println("Successfully scrolled by pixel " + scroll);
-            logger.log(LogStatus.PASS,"Successfully scrolled by pixel " + scroll);
+            logger.log(LogStatus.PASS, "Successfully scrolled by pixel " + scroll);
         } catch (Exception e) {
             System.out.println("Unable to scroll by pixel " + scroll + ": " + e);
-            logger.log(LogStatus.FAIL,"Unable to scroll by pixel " + scroll + ": " + e);
+            logger.log(LogStatus.FAIL, "Unable to scroll by pixel " + scroll + ": " + e);
             getScreenShot(driver, elementName, logger);
         }//end of exception
     }//end of scroll by pixel 1 method
