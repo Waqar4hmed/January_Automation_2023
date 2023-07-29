@@ -102,7 +102,7 @@ public class ReusableMethodsLoggers {
         //declare explicit wait statement
         WebDriverWait wait = new WebDriverWait(driver, 10);
         try {
-            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
+            WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
             element.clear();
             element.sendKeys(userValue);
             System.out.println("Successfully cleared and send value on element " + elementName);

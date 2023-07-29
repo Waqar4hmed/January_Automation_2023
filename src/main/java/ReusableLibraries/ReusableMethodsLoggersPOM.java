@@ -64,13 +64,14 @@ public class ReusableMethodsLoggersPOM {
         }//end of exception
     }//end of click method
 
+
 /*
     //click method by index
-    public static void clickMethodByIndex(WebDriver driver, String xpath, int index, ExtentTest logger, String elementName) {
+    public static void clickMethodByIndex(WebDriver driver, WebElement xpath, int index, ExtentTest logger, String elementName) {
         //declare explicit wait statement
         WebDriverWait wait = new WebDriverWait(driver, 10);
         try {
-            wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(xpath))).get(index).click();
+            wait.until(ExpectedConditions.visibilityOf(xpath)).click();
             System.out.println("Successfully clicked by index on element " + elementName);
             logger.log(LogStatus.PASS, "Successfully clicked by index on element " + elementName);
         } catch (Exception e) {
@@ -80,6 +81,7 @@ public class ReusableMethodsLoggersPOM {
         }//end of exception
     }//end of click method by index
 */
+
 
     //submit method
     public static void submitMethod(WebDriver driver, WebElement xpath, ExtentTest logger, String elementName) {
@@ -95,6 +97,23 @@ public class ReusableMethodsLoggersPOM {
             getScreenShot(driver, elementName, logger);
         }//end of exception
     }//end of submit method
+
+
+    //clear method
+    public static void clearMethod(WebDriver driver, WebElement xpath, ExtentTest logger, String elementName) {
+        //declare explicit wait statement
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        try {
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(xpath));
+            element.clear();
+            System.out.println("Successfully cleared element " + elementName);
+            logger.log(LogStatus.PASS, "Successfully cleared element " + elementName);
+        } catch (Exception e) {
+            System.out.println("Unable to clear element " + elementName + ": " + e);
+            logger.log(LogStatus.FAIL, "Unable to clear element " + elementName + ": " + e);
+            getScreenShot(driver, elementName, logger);
+        }//end of exception
+    }//end of clear method
 
 
     //sendKeys method
@@ -114,13 +133,14 @@ public class ReusableMethodsLoggersPOM {
         }//end of exception
     }//end of sendKeys method
 
+
 /*
     //sendKeys by index method
-    public static void sendKeysMethodByIndex(WebDriver driver, String xpath, String userValue, int index, ExtentTest logger, String elementName) {
+    public static void sendKeysMethodByIndex(WebDriver driver, WebElement xpath, String userValue, int index, ExtentTest logger, String elementName) {
         //declare explicit wait statement
         WebDriverWait wait = new WebDriverWait(driver, 10);
         try {
-            WebElement element = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(xpath))).get(index);
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(xpath));
             element.clear();
             element.sendKeys(userValue);
             System.out.println("Successfully clear and send value on element " + elementName);
@@ -132,6 +152,7 @@ public class ReusableMethodsLoggersPOM {
         }//end of exception
     }//end of sendKeys method by index
 */
+
 
     //getText method
     public static String getTextMethod(WebDriver driver, WebElement xpath, ExtentTest logger, String elementName) {
@@ -154,12 +175,12 @@ public class ReusableMethodsLoggersPOM {
 
 
     //mouse hover method
-    public static void hoverMethod(WebDriver driver, String xpath, ExtentTest logger, String elementName) {
+    public static void hoverMethod(WebDriver driver, WebElement xpath, ExtentTest logger, String elementName) {
         //declare explicit wait statement
         WebDriverWait wait = new WebDriverWait(driver, 10);
         Actions hover = new Actions(driver);
         try {
-            WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(xpath));
             hover.moveToElement(element).perform();
             System.out.println("Successfully hovered over element " + elementName);
             logger.log(LogStatus.PASS, "Successfully hovered over element " + elementName);
@@ -170,14 +191,15 @@ public class ReusableMethodsLoggersPOM {
         }//end of exception e
     }//end of hover method
 
+
 /*
     //mouse hover method by index
-    public static void hoverMethodByIndex(WebDriver driver, String xpath, int index, ExtentTest logger, String elementName) {
+    public static void hoverMethodByIndex(WebDriver driver, WebElement xpath, int index, ExtentTest logger, String elementName) {
         //declare explicit wait statement
         WebDriverWait wait = new WebDriverWait(driver, 10);
         Actions hover = new Actions(driver);
         try {
-            WebElement element = wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath(xpath))).get(index);
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(xpath));
             hover.moveToElement(element).perform();
             System.out.println("Successfully hovered over element " + elementName);
             logger.log(LogStatus.PASS, "Successfully hovered over by index element " + elementName);
@@ -189,12 +211,13 @@ public class ReusableMethodsLoggersPOM {
     }//end of hover method by index
 */
 
+
     //select by visible text method
-    public static void selectByVisibleText(WebDriver driver, String xpath, String userValue, ExtentTest logger, String elementName) {
+    public static void selectByVisibleText(WebDriver driver, WebElement xpath, String userValue, ExtentTest logger, String elementName) {
         //declare explicit wait statement
         WebDriverWait wait = new WebDriverWait(driver, 10);
         try {
-            WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(xpath));
             Select dropDown = new Select(element);
             dropDown.selectByVisibleText(userValue);
             System.out.println("Successfully selected the drop down by visible text " + elementName);
@@ -208,11 +231,11 @@ public class ReusableMethodsLoggersPOM {
 
 
     //select by value method
-    public static void selectByValue(WebDriver driver, String xpath, String userValue, ExtentTest logger, String elementName) {
+    public static void selectByValue(WebDriver driver, WebElement xpath, String userValue, ExtentTest logger, String elementName) {
         //declare explicit wait statement
         WebDriverWait wait = new WebDriverWait(driver, 10);
         try {
-            WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(xpath));
             Select dropDown = new Select(element);
             dropDown.selectByValue(userValue);
             System.out.println("Successfully selected the drop down by value " + elementName);
@@ -225,11 +248,11 @@ public class ReusableMethodsLoggersPOM {
     }//end of select by visible text method
 
 
-    public static void selectByIndex(WebDriver driver, String xpath, int userValue, ExtentTest logger, String elementName) {
+    public static void selectByIndex(WebDriver driver, WebElement xpath, int userValue, ExtentTest logger, String elementName) {
         //declare explicit wait statement
         WebDriverWait wait = new WebDriverWait(driver, 10);
         try {
-            WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(xpath));
             Select dropDown = new Select(element);
             dropDown.selectByIndex(userValue);
             System.out.println("Successfully selected the drop down by index " + elementName);
@@ -243,12 +266,12 @@ public class ReusableMethodsLoggersPOM {
 
 
     //scroll into view method
-    public static void scrollIntoView(WebDriver driver, String xpath, ExtentTest logger, String elementName) {
+    public static void scrollIntoView(WebDriver driver, WebElement xpath, ExtentTest logger, String elementName) {
         //declare explicit wait statement
         WebDriverWait wait = new WebDriverWait(driver, 10);
         JavascriptExecutor jse = (JavascriptExecutor) driver;
         try {
-            WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
+            WebElement element = wait.until(ExpectedConditions.visibilityOf(xpath));
             jse.executeScript("arguments[0].scrollIntoView(true);", element);
             System.out.println("Successfully scrolled into view " + elementName);
             logger.log(LogStatus.PASS, "Successfully scrolled into view " + elementName);
@@ -308,12 +331,12 @@ public class ReusableMethodsLoggersPOM {
 
 
     //boolean method
-    public static void booleanMethod(WebDriver driver, String xpath, boolean expected, String elementName) {
+    public static void booleanMethod(WebDriver driver, WebElement xpath, boolean expected, String elementName) {
         //declare explicit wait statement
         WebDriverWait wait = new WebDriverWait(driver, 10);
         try {
             //store the xpath in a boolean statement
-            boolean element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath))).isSelected();
+            boolean element = wait.until(ExpectedConditions.visibilityOf(xpath)).isSelected();
             System.out.println("Value: " + element);
             if (element == expected) {
                 System.out.println("Passed: Checkbox is " + expected);
